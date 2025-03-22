@@ -10,7 +10,7 @@ conectarDB();
 const app = express();
 
 app.use(cors({
-    origin: ["https://landing-dev-mauve.vercel.app", "http://localhost:3000"],
+    origin: "*",  // Permite todas las solicitudes
     credentials: true
 }));
 
