@@ -8,7 +8,11 @@ conectarDB();
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    cors: {
+        origin: ['https://landing-dev-mauve.vercel.app', 'http://localhost:3000'], // Cambia por tu dominio
+        credentials: true
+    }
 });
 
 
