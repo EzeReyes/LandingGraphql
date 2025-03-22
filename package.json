@@ -1,0 +1,21 @@
+{
+  "name": "landinggrapqhl",
+  "version": "1.0.0",
+  "description": "Contiene el servidor del proyecto",
+  "license": "ISC",
+  "author": "Ezequiel Reyes",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "dotenv": "^16.4.7",
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
