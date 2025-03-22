@@ -1,24 +1,35 @@
-const {ApolloServer} = require('apollo-server');
-const typeDefs = require('./db/schema');
-const resolvers = require('./db/resolvers');
-const conectarDB = require('./config/db');
+const { ApolloServer } = require("apollo-server-express");
+const express = require("express");
+const cors = require("cors");
+const conectarDB = require("./config/db");
+const typeDefs = require("./db/schema");
+const resolvers = require("./db/resolvers");
 
 conectarDB();
 
+const app = express();
+
+app.use(cors({
+    origin: ["https://landing-dev-mauve.vercel.app", "http://localhost:3000"],
+    credentials: true
+}));
 
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    cors: {
-        origin: ['https://landing-dev-mauve.vercel.app', 'http://localhost:3000'], // Cambia por tu dominio
-        credentials: true
+    context: ({ req }) => {
+        const token = req.headers.authorization || "";
+        return { token };
     }
 });
 
+async function startServer() {
+    await server.start();
+    server.applyMiddleware({ app, path: "/graphql" });
 
+    app.listen({ port: 4000 }, () => {
+        console.log(`Servidor corriendo en http://localhost:4000${server.graphqlPath}`);
+    });
+}
 
-
-server.listen().then(( {url} ) => {
-    console.log(`Servidor corriendo en la ${url}`)
-})
-
+startServer();
