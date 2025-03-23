@@ -10,17 +10,13 @@ conectarDB();
 const app = express();
 
 app.use(cors({
-    origin: "*",  // Permite todas las solicitudes
-    credentials: true
+    origin: ["https://landing-dev-mauve.vercel.app", "http://localhost:3000"],  // Asegúrate de que la URL de tu frontend esté aquí
+    credentials: true,
 }));
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers,
-    context: ({ req }) => {
-        const token = req.headers.authorization || "";
-        return { token };
-    }
+    resolvers
 });
 
 async function startServer() {
