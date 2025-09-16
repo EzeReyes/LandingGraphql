@@ -1,0 +1,53 @@
+[{
+    "nombre": "Calculadora (mini proyecto)",
+        "pagina": "https://ezereyes.github.io/calculadoraPersonal/",
+        "imagen": "",
+        "descripcion": "Mini proyecto de práctica, en el cual se utiliza Javascript Vanilla, Css y HTML, Calculadora.",
+        "github":[
+          {
+            "tipo": "Frontend & Backend",
+            "direccion": "https://github.com/EzeReyes/calculadoraPersonal"
+          }
+        ],
+        "tecnologias": [
+          {
+            "nombre": "css",
+            "logo": "https://img.icons8.com/color/48/css3.png"
+          },
+          {
+            "nombre": "html",
+            "logo": "https://img.icons8.com/color/48/html-5--v1.png"
+          },
+          {
+            "nombre": "Javascript",
+            "logo": "https://img.icons8.com/color/48/javascript--v1.png"
+          }
+        ]
+  },
+  {
+    "nombre": "Reloj (mini proyecto)",
+        "pagina": "https://ezereyes.github.io/reloj/",
+        "imagen": "",
+        "descripcion": "Mini proyecto de práctica, en el cual se utiliza Javascript Vanilla, Css y HTML, Reloj analógico y digital.",
+        "github":[
+          {
+            "tipo": "Frontend & Backend",
+            "direccion": "https://github.com/EzeReyes/reloj"
+          }
+        ],
+        "tecnologias": [
+          {
+            "nombre": "css",
+            "logo": "https://img.icons8.com/color/48/css3.png"
+          },
+          {
+            "nombre": "html",
+            "logo": "https://img.icons8.com/color/48/html-5--v1.png"
+          },
+          {
+            "nombre": "Javascript",
+            "logo": "https://img.icons8.com/color/48/javascript--v1.png"
+          }
+        ]
+  }
+]

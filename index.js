@@ -10,7 +10,11 @@ conectarDB();
 const app = express();
 
 app.use(cors({
-    origin: ["https://landing-dev-mauve.vercel.app", "http://localhost:3000"],  // Asegúrate de que la URL de tu frontend esté aquí
+    origin: ["https://landing-dev-mauve.vercel.app", 
+        "http://localhost:3000", 
+        "http://localhost:5173",
+        "https://ezequiel-reyes.vercel.app/"
+    ],  // Asegúrate de que la URL de tu frontend esté aquí
     credentials: true,
 }));
 
@@ -24,7 +28,7 @@ async function startServer() {
     server.applyMiddleware({ app, path: "/graphql" });
 
     app.listen({ port: 4000 }, () => {
-        console.log(`Servidor corriendo en http://localhost:4000${server.graphqlPath}`);
+        console.log(`Servidor corriendo en http://localhost:4000/graphql`);
     });
 }
 

@@ -30,7 +30,7 @@ const resolvers = {
         try {
             const nuevaConsulta = new Consulta(input);
             nuevaConsulta.save();
-            return "Creando nueva Consulta";
+            return "Consulta enviada Correctamente";
         } catch (error) {
             console.log(error);
         }
