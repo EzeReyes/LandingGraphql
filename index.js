@@ -35,7 +35,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post('https://landinggraphql.onrender.com/api/contact', async (req, res) => {
+app.post('/api/contact', async (req, res) => {
   const { nombre, apellido, email, telefono, consulta } = req.body;
 
   const mailOptions = {
