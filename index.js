@@ -33,12 +33,7 @@ async function startServer() {
       app,
       path: "/graphql",
       cors: {
-        origin: [
-          "https://landing-dev-mauve.vercel.app",
-          "http://localhost:3000",
-          "http://localhost:5173",
-          "https://ezequiel-reyes.vercel.app"
-        ],
+        origin: ["https://ezequiel-reyes-6sn9.vercel.app/"],
         credentials: true,
       },
     });
