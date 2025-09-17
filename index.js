@@ -12,7 +12,7 @@ const app = express();
 // Opcional: aplicar CORS global si tenés otras rutas además de /graphql
 app.use(cors({
   origin: [
-    "https://ezequiel-reyes-6sn9.vercel.app"
+    "https://ezequiel-reyes.vercel.app"
   ],
   credentials: true,
 }));
@@ -30,7 +30,7 @@ async function startServer() {
       app,
       path: "/graphql",
       cors: {
-        origin: ["https://ezequiel-reyes-6sn9.vercel.app"],
+        origin: ["https://ezequiel-reyes.vercel.app"],
         credentials: true,
       },
     });
