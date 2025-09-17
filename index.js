@@ -4,6 +4,7 @@ const cors = require("cors");
 const conectarDB = require("./config/db");
 const typeDefs = require("./db/schema");
 const resolvers = require("./db/resolvers");
+const nodemailer = require('nodemailer')
 
 conectarDB();
 
@@ -12,7 +13,8 @@ const app = express();
 // Opcional: aplicar CORS global si tenés otras rutas además de /graphql
 app.use(cors({
   origin: [
-    "https://ezequiel-reyes.vercel.app",
+    "https://ezequiel-reyes.vercel.app"
+    // "http://localhost:5173"
   ],
   credentials: true,
 }));
@@ -24,8 +26,16 @@ const server = new ApolloServer({
 
 app.use(express.json());
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail', // ✅ Esto simplifica el uso de Gmail
+  auth: {
+    user: process.env.GMAIL_USER, // tu dirección Gmail
+    pass: process.env.GMAIL_PASS  // tu contraseña o App Password
+  }
+});
 
-app.post('/api/contact', async (req, res) => {
+
+app.post('https://landinggraphql.onrender.com/api/contact', async (req, res) => {
   const { nombre, apellido, email, telefono, consulta } = req.body;
 
   const mailOptions = {
@@ -112,14 +122,17 @@ async function startServer() {
   try {
     await server.start();
 
-    server.applyMiddleware({
-      app,
-      path: "/graphql",
-      cors: {
-        origin: ["https://ezequiel-reyes.vercel.app"],
-        credentials: true,
-      },
-    });
+server.applyMiddleware({
+  app,
+  path: "/graphql",
+  cors: {
+    origin: [
+      "https://ezequiel-reyes.vercel.app"
+      // "http://localhost:5173"
+    ],
+    credentials: true,
+  },
+});
 
     const PORT = process.env.PORT || 4000;
     app.listen(PORT, () => {
